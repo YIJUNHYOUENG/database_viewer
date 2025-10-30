@@ -6,8 +6,9 @@
     "dev": "nodemon server.js"
   },
   "dependencies": {
-    "express": "^4.18.2",
     "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "path": "^0.12.7",
     "pg": "^8.11.3"
   }
 }
