@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "start": "node server.js",
+    "build": "cd ../frontend && npm install && npm run build && cd ../backend && npm install",
     "dev": "nodemon server.js"
   },
   "dependencies": {
