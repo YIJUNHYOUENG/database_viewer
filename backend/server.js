@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const { Pool } = require('pg');
+const path = require('path');
 
 const app = express();
 const PORT = 5000;
@@ -13,6 +14,14 @@ app.use(express.json());
 
 // 연결 풀을 저장할 객체
 let currentPool = null;
+
+const __dirname = path.resolve();
+
+app.use(express.static(path.join(__dirname, "/frontend/build")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "frontend", "build", "index.html"));
+});
 
 // PostgreSQL 연결 테스트
 app.post('/api/connect', async (req, res) => {
